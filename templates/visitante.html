@@ -1,0 +1,16 @@
+{% extends './layout.html' %}
+
+{% block Title %} Home {% endblock Title %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/capturista_home.css')}}">
+{% endblock %}
+
+{% block Body %}
+
+<ul>
+    <li><a href="{{url_for('reportesV')}}">Ver Archivos</a></li>
+    <li><a href="{{url_for('logout_guest')}} "> Cerrar sesion </a></li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends './layout.html' %}
+
+{% block Title %} Editando reporte {% endblock Title %}
+
+{% block CSS %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+{% endblock %}
+
+{% block Body %}
+
+
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h2 class="is-size-2">Editando reporte</h2>
+            <h3>EDITAR UN CAMPO A LA VEZ***</h3>
+            <h3>ID/FOLIO, DESCRIPCIÓN Y ESTADO PUEDEN SER EDITADOS AL MISMO TIEMPO**</h3>
+            <br>
+            <form action="/editando_reporte" method="post" enctype="multipart/form-data">
+                    {% for reporte in reportes %}
+                    id o folio de solicitud (Máximo 19 Dígitos)
+                    <input type="hidden" name="real_id" id="real_id" value="{{reporte[0]}}">
+                    <input type="number" class="form-control" placeholder="id o folio" name="id" id="id" value="{{reporte[0]}}"><br><br>
+                    solicitud.pdf
+                    <input type="file" class="form-control" name="solicitud" id="solicitud""><br><br>
+                    acreditacion.pdf
+                    <input type="file" class="form-control" name="acreditacion" id="acreditacion""><br><br>
+                    acta_constitutiva.pdf
+                    <input type="file" class="form-control" name="acta_constitutiva" id="acta_constitutiva"><br><br>
+                    identificacion.pdf
+                    <input type="file" class="form-control" name="identificacion" id="identificacion"><br><br>
+                    ubicacion.pdf
+                    <input type="file" class="form-control" name="ubicacion" id="ubicacion"><br><br>
+                    plano.pdf
+                    <input type="file" class="form-control" name="plano" id="plano"><br><br>
+                    carta_poder.pdf
+                    <input type="file" class="form-control" name="carta_poder" id="carta_poder"><br><br>
+                    descripcion
+                    <input type="text" class="form-control" placeholder="comentario" name="descripcion" id="descripcion" value="{{reporte[8]}}"><br><br>
+                    estatus
+                    <input type="text" class="form-control" placeholder="inicial, en proceso, finalizado" name="estatus" id="estatus" value="{{reporte[9]}}"><br><br>
+                    {% endfor %}
+                    <input type="submit" class="button is-primary mt-2" value="Actualizar">
+                </form>
+            <a href="{{url_for('home')}}" class="button is-secondary mt-2">Volver</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

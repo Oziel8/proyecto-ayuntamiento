@@ -1,0 +1,91 @@
+{% extends './layout.html' %}
+
+{% block Title %} Subir documentos {% endblock Title %}
+
+{% block CSS %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+
+<link rel="stylesheet" href="../static/css/formAdmin.css">
+{% endblock %}
+
+{% block Body %}
+<div class="tittle">
+    <h1>Agregar Documentos</h1>
+</div>
+
+<section class="section">
+    <div class="columns">
+    
+      
+           
+            <diV class="container">
+
+                <form class="forms" action="/capturaA" method="post" enctype="multipart/form-data">
+                   
+                    <div class="id">
+                        <div class="mb-3">                           
+                        
+                        <label for="id"><p class="fw-bold">Id o folio de solicitud (Máximo 19 dígitos)</p></label>
+                        <input required type="number" class="form-control" placeholder="Id" name="id" id="id">
+                     </div>
+            
+                        <div class="subtittle">
+                            <h5><p class="fw-bolder">Suba los siguientes documentos</p></h5>
+                        </div>
+
+                    <div class="solicitud">
+                    
+                        <label for="solicitud"><p class="fw-bold">Solicitud</p></label>
+                        <input required type="file" class="form-control" placeholder="Solicitud" name="solicitud" id="solicitud">
+                    
+                    </div><br>
+                    <div class="äcreditacion">
+                    <label for="acreditacion"><p class="fw-bold">Acreditacion</p></label>
+                    <input required type="file" class="form-control" placeholder="Acreditacion" name="acreditacion" id="acreditacion">
+                   
+                    </div><br>
+                    <div class="act">
+                    <label for="actaconstitutiva"><p class="fw-bold">Acta Constitutiva</p></label>
+                    <input required type="file" class="form-control" placeholder="Acta Constitutiva" name="actaconstitutiva" id="actaconstitutiva">
+                    
+                    </div><br>
+                    <div class="iden">
+                    <label for="identificacion"><p class="fw-bold">Identificacion</p></label>
+                    <input required type="file" class="form-control" placeholder="Identificacion" name="identificacion" id="identificacion">
+                    
+                    </div><br>
+                    <div class="ub">
+                    <label for="ubicacion"><p class="fw-bold">Ubicacion</p></label>
+                    <input required type="file" class="form-control" placeholder="Ubicacion" name="ubicacion" id="ubicacion">
+                    </div><br>
+
+                    <div class="pl">
+                    <label for="plano"><p class="fw-bold">Plano</p></label>
+                    <input required type="file" class="form-control" placeholder="Plano" name="plano" id="plano">
+                    <div><br>
+
+                    <div class="cart">
+                    <label for="cartadepoder"><p class="fw-bold">Carta De Poder</p></label>
+                    <input type="file" class="form-control" placeholder="Carta De Poder" name="cartadepoder" id="cartadepoder">
+                    <br>
+                    </div><br>
+
+                    <label for="descripcion"><p class="fw-bold">Descripcion</p></label>
+                    <div class="form-floating">
+                    <input required type="text" class="form-control" placeholder="Descripcion" name="descripcion" id="descripcion">
+                    </div><br>
+
+                    <label for="descripcion"><p class="fw-bold">Estatus</p></label>
+                    <input required type="text" class="form-control" placeholder="inicial, en proceso, finalizado" name="estatus" id="estatus">
+                    </div><br>
+
+                        <div class="btn">
+                        <input class="input" type="submit" value="Subir" id="subbtn">
+                        </div>
+                    </form>
+                    <a href="{{url_for('home')}}" class="button is-primary mt-2">Volver</a>
+            
+            </diV>
+    </div>
+</section>
+{% endblock %}

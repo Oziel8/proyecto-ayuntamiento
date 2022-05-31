@@ -1,0 +1,60 @@
+{% extends './layout.html' %}
+
+{% block Title %} Reportes {% endblock Title %}
+
+{% block CSS %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+{% endblock %}
+
+{% block Body %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">Reportes</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Eliminar</th>
+                        <th>Id solicitud</th>
+                        <th>Solicitud</th>
+                        <th>Acreditacion</th>
+                        <th>Acta constitutiva</th>
+                        <th>Identificacion</th>
+                        <th>Ubicacion</th>
+                        <th>Plano</th>
+                        <th>Carta poder</th>
+                        <th>Descripcion</th>
+                        <th>estatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reporte in reportes %}
+                    <tr>
+                        <td>
+                            <form action="{{url_for('eliminar_reporte')}}" method="POST">
+                                <input type="hidden" name="id" value="{{reporte[0]}}">
+                                <button class="button is-danger">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>{{reporte[0]}}</td>
+                        <td><a href="#">solicitud.pdf</a></td>
+                        <td><a href="#">Acreditacion.pdf</a></td>
+                        <td><a href="#">Acta_constitutiva.pdf</a></td>
+                        <td><a href="#">Identificacion.pdf</a></td>
+                        <td><a href="#">Ubicacion.pdf</a></td>
+                        <td><a href="#">Plano.pdf</a></td>
+                        <td><a href="#">Carta_poder.pdf</a></td>
+                        <td>{{reporte[8]}}</td>
+                        <td>{{reporte[9]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+           
+            <a href="{{url_for('home')}}" class="button is-primary mt-2">Volver</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

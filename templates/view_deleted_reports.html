@@ -1,0 +1,53 @@
+{% extends './layout.html' %}
+
+{% block Title %} Reportes Eliminados {% endblock Title %}
+
+{% block CSS %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+{% endblock %}
+
+{% block Body %}
+
+
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">Reportes eliminados</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Expediente</th>
+                        <th>Solicitud</th>
+                        <th>Acreditacion</th>
+                        <th>Acta constitutiva</th>
+                        <th>Identificacion</th>
+                        <th>Ubicacion</th>
+                        <th>Plano</th>
+                        <th>Carta poder</th>
+                        <th>Descripcion</th>
+                        <th>estatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for respaldo in respaldos %}
+                    <tr>
+                        <td>{{respaldo[0]}}</td>
+                        <td><a href="#">(solicitud.pdf) </a></td>
+                        <td><a href="#">(acreditacion.pdf) </a></td>
+                        <td><a href="#">(acta_constitutiva.pdf) </a></td>
+                        <td><a href="#">(identificacion.pdf) </a></td>
+                        <td><a href="#">(ubicacion.pdf) </a></td>
+                        <td><a href="#">(plano.pdf) </a></td>
+                        <td><a href="#">(carta_poder.pdf) </a></td>
+                        <td>{{respaldo[8]}} </td>
+                        <td>{{respaldo[9]}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{url_for('home')}}" class="button is-primary mt-2">Volver</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
